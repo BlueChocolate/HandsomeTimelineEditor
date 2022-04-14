@@ -2,6 +2,7 @@
 using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,16 +23,46 @@ namespace HandsomeTimelineEditor
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        Timeline timeline = new Timeline();
         public MainWindow()
         {
             InitializeComponent();
             InitCurrentTheme();
+            InitDatacontext();
+        }
+
+        private void InitDatacontext()
+        {
+            DataContext = timeline;
         }
 
         private void InitCurrentTheme()
         {
             ThemeManager.Current.ThemeSyncMode = ThemeSyncMode.SyncWithAppMode;
             ThemeManager.Current.SyncTheme();
+        }
+
+
+        private void ImportFromFile_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            openFileDialog.Multiselect = false;
+            openFileDialog.Filter = "文本文件 (*.txt)|*.txt|Json 文件 (*.json)|*.json|All files (*.*)|*.*";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            if (openFileDialog.ShowDialog() == true)
+            {
+                timeline.OriginalData = File.ReadAllText(openFileDialog.FileName);
+            }
+        }
+
+        private void ConvertFromText_Click(object sender, RoutedEventArgs e)
+        {
+            timeline.ReadOriginalData();
+        }
+
+        private void ExportFromText_Click(object sender, RoutedEventArgs e)
+        {
+            timeline.ConvertToRaw();
         }
     }
 }
