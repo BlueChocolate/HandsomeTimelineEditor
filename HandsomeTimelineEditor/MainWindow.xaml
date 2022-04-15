@@ -60,7 +60,7 @@
                     </DockPanel>
                 </StackPanel>
 
-                <TextBox Grid.Row="1" Text="{Binding OriginalData}" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+                <TextBox Grid.Row="1" Text="{Binding OriginalData}" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
 
             </Grid>
             <GridSplitter Grid.Column="1" />
