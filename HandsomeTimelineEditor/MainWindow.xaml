@@ -7,18 +7,19 @@
                  xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" 
                  d:DataContext="{d:DesignInstance Type=local:Timeline}"
                  mc:Ignorable="d"
-                 Title="MainWindow" Height="450" Width="800">
+                 Title="Handsome主题时间线编辑器 - Handsome Theme Timeline Editor" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
             <RowDefinition Height="5" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button Content="导入文件" Margin="5" Click="ImportFromFile_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
-            <Button Content="转换数据" Margin="5" Click="ConvertFromText_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
-            <Button Content="导出数据" Margin="5" Click="ExportFromText_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
-            <Button Content="插入新行" Margin="5" Click="AddNewRow_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <Button Content="导入文件" Click="ImportFromFile_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
+            <Button Content="保存文件" Click="SaveToFile_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
+            <Button Content="转换数据" Click="ConvertFromText_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
+            <Button Content="导出数据" Click="ExportFromText_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
+            <Button Content="插入新行" Click="AddNewRow_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
         </StackPanel>
         <Separator Grid.Row="1"/>
         <Grid Grid.Row="2">

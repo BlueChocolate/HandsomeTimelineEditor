@@ -1,5 +1,6 @@
 ﻿using ControlzEx.Theming;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -47,7 +48,7 @@ namespace HandsomeTimelineEditor
         {
             Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
             openFileDialog.Multiselect = false;
-            openFileDialog.Filter = "文本文件 (*.txt)|*.txt|Json 文件 (*.json)|*.json|All files (*.*)|*.*";
+            openFileDialog.Filter = "Text file (*.txt)|*.txt|All file (*.*)|*.*";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (openFileDialog.ShowDialog() == true)
             {
@@ -68,6 +69,19 @@ namespace HandsomeTimelineEditor
         private void AddNewRow_Click(object sender, RoutedEventArgs e)
         {
             timeline.EventList.Add(new EventItem("请输入文本", DateTime.Now, EventItem.StatusColor.Info));
+        }
+
+        private void SaveToFile_Click(object sender, RoutedEventArgs e)
+        {
+
+            Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog();
+            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            saveFileDialog.Filter = "Text file (*.txt)|*.txt|All file (*.*)|*.*";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                File.WriteAllText(saveFileDialog.FileName, timeline.OriginalData);
+                this.ShowMessageAsync("保存文件", "文件保存成功！");
+            }
         }
     }
 }
