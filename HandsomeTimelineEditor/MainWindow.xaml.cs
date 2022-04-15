@@ -64,5 +64,10 @@ namespace HandsomeTimelineEditor
         {
             timeline.ConvertToRaw();
         }
+
+        private void AddNewRow_Click(object sender, RoutedEventArgs e)
+        {
+            timeline.EventList.Add(new EventItem("请输入文本", DateTime.Now, EventItem.StatusColor.Info));
+        }
     }
 }

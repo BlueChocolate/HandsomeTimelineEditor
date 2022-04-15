@@ -18,6 +18,7 @@
             <Button Content="导入文件" Margin="5" Click="ImportFromFile_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
             <Button Content="转换数据" Margin="5" Click="ConvertFromText_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
             <Button Content="导出数据" Margin="5" Click="ExportFromText_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
+            <Button Content="插入新行" Margin="5" Click="AddNewRow_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" />
         </StackPanel>
         <Separator Grid.Row="1"/>
         <Grid Grid.Row="2">
