@@ -1,5 +1,5 @@
 # Handsome 主题时间线编辑器
-用于编辑Handsome主题的时间线标签，正则表达式练习项目。
+用于编辑 Handsome 主题的时间线标签，正则表达式练习项目。
 
 A timeline editor for the handsome theme of typecho.
 
